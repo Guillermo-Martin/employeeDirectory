@@ -1,11 +1,10 @@
 import React from 'react';
+import Table from './components/Table/Table'
 
 
 function App() {
   return (
-    <div>
-      <h1>Hello world!</h1>
-    </div>
+    <Table />
   );
 }
 
