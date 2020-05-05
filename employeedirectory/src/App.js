@@ -1,10 +1,15 @@
 import React from 'react';
-import Table from './components/Table/Table'
+import Table from './components/Table/Table';
+import TableContainer from './containers/TableContainer'
 
 
 function App() {
   return (
-    <Table />
+    <div>
+
+      <TableContainer />
+    </div>
+
   );
 }
 
