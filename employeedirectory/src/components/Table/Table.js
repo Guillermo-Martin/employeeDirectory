@@ -1,10 +1,10 @@
 import React from 'react';
 
-function Table() {
+function Table(props) {
   return (
     <div>
-      <h1>Table</h1>
-      <p>Table will render here!</p>
+      <h1>This is coming from the Table component</h1>
+      
     </div>
   );
 }

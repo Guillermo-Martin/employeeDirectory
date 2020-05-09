@@ -1,24 +1,36 @@
-// require mysql
-const mysql = require('mysql');
+// EXPRESS CONFIGURATION
+// =============================================
+// Require Express
+const express = require("express");
 
-// estalish connection with the database
-const connection = mysql.createConnection({
-  host: 'localhost',
-  user: 'root',
-  password: 'password',
-  database: 'react_employee_db',
+// Set up the Express app
+const app = express();
+const PORT = 3005;
+
+// Include body parser for data parsing
+app.use(express.urlencoded({ extended: true }));
+app.use(express.json());
+
+// =============================================
+
+
+
+
+// ROUTES
+// =============================================
+// Homepage route
+app.get("/", function(req, res) {
+  res.send("You've reached the homepage!");
 });
 
-// testing the connection (5/4/20: connection is good)
-// connection.connect(function(err) {
-//   if(err) throw err;
-//   console.log("connected as id " + connection.threadId);
-//   connection.end();
-// });
+// =============================================
 
-// testing a query
-// connection.query("SELECT * FROM employee;", (err, results) => {
-//   if(err) throw err;
-//   console.log(JSON.stringify(results, null, 2));
-//   connection.end();
-// });
+
+
+
+
+// Listener
+// =============================================
+app.listen(PORT, function(){
+    console.log("App listening on PORT " + PORT);
+});
