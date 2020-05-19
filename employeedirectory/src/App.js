@@ -1,13 +1,12 @@
 import React from 'react';
-import Table from './components/Table/Table';
-import TableContainer from './containers/TableContainer'
+import UserContainer from './containers/UserContainer'
 
 
 function App() {
   return (
     <div>
 
-      <TableContainer />
+      <UserContainer />
     </div>
 
   );
