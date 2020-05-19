@@ -16,7 +16,6 @@ class UserContainer extends Component {
         console.log(res.data.results);
         this.setState({result: res.data.results});
       })
-
       .catch(err => console.log(err));
   }
 

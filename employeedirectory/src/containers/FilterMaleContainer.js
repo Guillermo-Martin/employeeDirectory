@@ -1,15 +1,15 @@
 import React, { Component } from 'react';
 import API from './../utils/API';
-import FilterFemale from './../components/FilterFemale';
+import FilterMale from './../components/FilterMale';
 
-class FilterFemaleContainer extends Component {
+class FilterMaleContainer extends Component {
 
   state = {
     result: [],
   }
 
-  filterFemales = () => {
-    API.filterFemale()
+  filterMales = () => {
+    API.filterMale()
       .then(res => {
         console.log(res.data.results);
         this.setState({result: res.data.results});
@@ -18,14 +18,14 @@ class FilterFemaleContainer extends Component {
   }
 
   componentDidMount() {
-    this.filterFemales();
+    this.filterMales();
   }
   
   render() {
     return(
-      <FilterFemale filterFemales={this.state.result} />
+      <FilterMale filterMales={this.state.result} />
     )
   }
 }
 
-export default FilterFemaleContainer;
+export default FilterMaleContainer;

@@ -1,6 +1,6 @@
 import React from 'react';
 
-function FilterFemale(props) {
+function FilterMale(props) {
   return(
     <div>
       
@@ -17,7 +17,7 @@ function FilterFemale(props) {
           </tr>
 
           {/* For every user in the results, map through the array and get info */}
-          {props.filterFemales.map(({login, name, picture, email, location, cell, phone}) => {
+          {props.filterMales.map(({login, name, picture, email, location, cell, phone}) => {
             return(
               <tr key={login.uuid}>
                 <td><img src={picture.large} /></td>
@@ -37,4 +37,4 @@ function FilterFemale(props) {
   );
 }
 
-export default FilterFemale;
+export default FilterMale;

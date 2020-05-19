@@ -9,5 +9,9 @@ export default {
 
   filterFemale: function() {
     return axios.get(BASEURL + '?results=20&nat=us&gender=female');
-  }
+  },
+
+  filterMale: function() {
+    return axios.get(BASEURL + '?results=20&nat=us&gender=male');
+  },
 }
