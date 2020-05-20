@@ -9,7 +9,7 @@ function User(props) {
           {/* Headings */}
           <tr>
             <th>User</th>
-            <th>Name</th>
+            <th><button onClick={props.sortUsers}>Name</button></th>
             <th>Address</th>
             <th>Email</th>
             <th>Cell Phone</th>

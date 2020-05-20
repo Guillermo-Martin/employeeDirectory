@@ -19,6 +19,29 @@ class UserContainer extends Component {
       .catch(err => console.log(err));
   }
 
+  // compare function to sort users alphabetically
+  comparison = (a, b) => {
+    const userA = a.name.first.toLowerCase();
+    const userB = b.name.first.toLowerCase();
+   
+    let comparison = 0;
+    if(userA > userB) {
+      comparison = 1;
+    } else if (userA < userB) {
+      comparison = -1;
+    }
+    return comparison;
+  }
+
+  // how to sort an array of objects: https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/
+  // function to sort the array (which is currently this.state.result)
+  // sortUsers will take the result array, and sort alphabetically
+  // then set the state to be the sorted array
+  sortUsers = () => {
+    this.setState({result: this.state.result.sort(this.comparison)});
+    console.log("you clicked the name button");
+  }
+
   // will show users on the homepage
   componentDidMount() {
     this.getUsers()
@@ -28,7 +51,10 @@ class UserContainer extends Component {
     return (
       <div>
         {/* User data will go in the component as props */}
-        <User users={this.state.result}/>
+        <User 
+          users={this.state.result}
+          sortUsers={this.sortUsers}
+        />
       </div>
       
     );
