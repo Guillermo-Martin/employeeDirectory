@@ -8,7 +8,7 @@ function User(props) {
         <tbody>
           {/* Headings */}
           <tr>
-            <th>User</th>
+            <th><button onClick={props.filter}>User</button></th>
             <th><button onClick={props.sortUsers}>Name</button></th>
             <th>Address</th>
             <th>Email</th>

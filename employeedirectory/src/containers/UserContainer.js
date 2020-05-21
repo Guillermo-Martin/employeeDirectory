@@ -7,24 +7,31 @@ class UserContainer extends Component {
   // create a state that will hold the response data from axios call
   state = {
     result: [],
+    filter: '',
+    filterResultMale: [],
+    filterResultFemale: [],
+    showResult: [],
   }
 
   // add a function to make a query to https://randomuser.me/api/
   getUsers = () => {
     API.search()
       .then(res => {
-        console.log(res.data.results);
         this.setState({result: res.data.results});
+        this.setState({filterResultMale: res.data.results});
+        this.setState({filterResultFemale: res.data.results});
+        this.setState({showResult: res.data.results});
       })
       .catch(err => console.log(err));
   }
 
+  // how to sort an array of objects: https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/
   // compare function to sort users alphabetically
   comparison = (a, b) => {
     const userA = a.name.first.toLowerCase();
     const userB = b.name.first.toLowerCase();
-   
     let comparison = 0;
+
     if(userA > userB) {
       comparison = 1;
     } else if (userA < userB) {
@@ -33,18 +40,62 @@ class UserContainer extends Component {
     return comparison;
   }
 
-  // how to sort an array of objects: https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/
-  // function to sort the array (which is currently this.state.result)
-  // sortUsers will take the result array, and sort alphabetically
+  
+  // function to sort the array (which is currently this.state.showResult)
+  // sortUsers will take the showResult array, and sort alphabetically
   // then set the state to be the sorted array
   sortUsers = () => {
-    this.setState({result: this.state.result.sort(this.comparison)});
+    this.setState({showResult: this.state.showResult.sort(this.comparison)});
     console.log("you clicked the name button");
   }
 
-  // will show users on the homepage
+  // filter array for male employees
+  filterMale = () => {
+    const filterUser = this.state.filterResultMale;
+    const filteredMale = filterUser.filter(user => user.gender === "male");
+    this.setState({showResult: filteredMale});
+  }
+
+  // filter array for female employees
+  filterFemale = () => {
+    const filterUser = this.state.filterResultFemale;
+    const filteredFemale = filterUser.filter(user => user.gender === "female");
+    this.setState({showResult: filteredFemale});
+  }
+
+  // the filter function (will cycle through male, female, and all employees)
+  
+  // if the state is male, run the filterMale function
+  // if the state is female, run the filterFemale function
+  filter = () => {
+    // create a state to track whether to show just male, female, or all employees
+    const currentFilter = this.state.filter;
+    
+    // if the currentFilter state is empty (showing all employees), then filter employees
+    // by male employees
+    if(currentFilter === ''){
+      // filter by male users
+      this.filterMale();
+      this.setState({filter: 'male'});
+
+    // if the currentFilter state is 'male' (showing all male employees), then filter employees
+    // by female employees
+    } else if(currentFilter === 'male') {
+      // filter by female users
+      this.filterFemale();
+      this.setState({filter: 'female'});
+
+    // if the currentFilter state is 'female' (showing all female employees), then show all employees
+    } else {
+      this.setState({showResult: this.state.result});
+      this.setState({filter: ''});
+    }
+  }
+  
+
+  // will show all users on the homepage
   componentDidMount() {
-    this.getUsers()
+    this.getUsers();
   }
 
   render() {
@@ -52,11 +103,12 @@ class UserContainer extends Component {
       <div>
         {/* User data will go in the component as props */}
         <User 
-          users={this.state.result}
+          users={this.state.showResult}
           sortUsers={this.sortUsers}
+          filterMale={this.filterMale}
+          filter={this.filter}
         />
-      </div>
-      
+      </div> 
     );
   }
 }
