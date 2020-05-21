@@ -11,6 +11,7 @@ class UserContainer extends Component {
     filterResultMale: [],
     filterResultFemale: [],
     showResult: [],
+    alpha: false,
   }
 
   // add a function to make a query to https://randomuser.me/api/
@@ -26,6 +27,7 @@ class UserContainer extends Component {
   }
 
   // how to sort an array of objects: https://www.sitepoint.com/sort-an-array-of-objects-in-javascript/
+  // ========== Functions to sort users alphabetically ==========
   // compare function to sort users alphabetically
   comparison = (a, b) => {
     const userA = a.name.first.toLowerCase();
@@ -40,14 +42,42 @@ class UserContainer extends Component {
     return comparison;
   }
 
-  
   // function to sort the array (which is currently this.state.showResult)
   // sortUsers will take the showResult array, and sort alphabetically
   // then set the state to be the sorted array
   sortUsers = () => {
     this.setState({showResult: this.state.showResult.sort(this.comparison)});
-    console.log("you clicked the name button");
+    this.setState({alpha: true})
   }
+
+  // ========== Functions to sort users in revese alphabetical order ==========
+  comparisonRev = (a, b) => {
+    const userA = a.name.first.toLowerCase();
+    const userB = b.name.first.toLowerCase();
+    let comparison = 0;
+
+    if(userA > userB) {
+      comparison = 1;
+    } else if (userA < userB) {
+      comparison = -1;
+    }
+    return comparison * -1;
+  }
+
+  sortUsersRev = () => {
+    this.setState({showResult: this.state.showResult.sort(this.comparisonRev)});
+    this.setState({alpha: false})
+  }
+
+  // if this.state.alpha is true, run sortUsers function; else run sortUsersRev function
+  sortAlpha = () => {
+    if(this.state.alpha === false) {
+      this.sortUsers();
+    } else {
+      this.sortUsersRev();
+    }
+  }
+
 
   // filter array for male employees
   filterMale = () => {
@@ -104,7 +134,8 @@ class UserContainer extends Component {
         {/* User data will go in the component as props */}
         <User 
           users={this.state.showResult}
-          sortUsers={this.sortUsers}
+          // sortUsers={this.sortUsers}
+          sortUsers={this.sortAlpha}
           filterMale={this.filterMale}
           filter={this.filter}
         />
