@@ -1,53 +1,38 @@
-# Unit 19 React Homework: Employee Directory
 
-## Overview
+  [![Contributor Covenant](https://img.shields.io/badge/Contributor%20Covenant-v2.0%20adopted-ff69b4.svg)](https://www.contributor-covenant.org/version/2/0/code_of_conduct/)
+  
+  # **Employee Directory**
 
-For this assignment, you'll create a employee directory with React. This assignment will require you to break up your application's UI into components, manage component state, and respond to user events.
+  # Table of Contents
+  * [Project Description](#project-description)
+  * [Installation](#installation)
+  * [Usage](#usage)
+  * [Tests](#tests)
+  * [License](#license)
+  * [Contributions](#contributions)
+  * [Questions](#questions)
 
-## User Story
+  # Project Description
+  When the page loads, a table renders containing a list of employees.  Clicking on the "Employees" button (located in the header of the table) will filter the employees by their gender and clicking on the "Name" button (also located in the header of the table) will sort the employees alphabetically by their first name.
+  
+  # Installation
+  This application was made using React and requires no installation.
 
-* As a user, I want to be able to view my entire employee directory at once so that I have quick access to their information.
+  # Usage
+  The application is located here:  [Employee Directory](put deployed website here).  Loading the webpage renders a table with randomly generated users obtained using the [Random User Generator API](https://randomuser.me/).  Clicking the "Employee" button will filter the employees by gender, and clicking on the "Name" button will sort the employees by their first name.
 
-## Business Context
+  # Tests
+  Tests can be conducted locally.  First a user can run the following command in the same directory as the 'package.json' file in order to install the necessary packages: ```sh npm i```.  The application can then be started by running the following command:  ```sh npm start``` 
 
-An employee or manager would benefit greatly from being able to view non-sensitive data about other employees. It would be particularly helpful to be able to filter employees by name.
+  # License
+  Licensed under the [MIT License](https://spdx.org/licenses/MIT.html).
 
-## Acceptance Criteria
+  # Contributions
+  This project is currently not accepting any contributions.
 
-Given a table of random users, when the user loads the page, a table of employees should render. 
-
-The user should be able to:
-
-  * Sort the table by at least one category
-
-  * Filter the users by at least one property.
-
-## Commit Early and Often
-
-One of the most important skills to master as a web developer is version control. Building the habit of committing via Git is important for two reasons:
-
-1. Your commit history is a signal to employers that you are actively working on projects and learning new skills
-
-2. Your commit history allows you to revert your code base in the event that you need to return to a previous state
-
-Follow these guidelines for committing:
-
-* Make single purpose commits for related changes to ensure a clean, manageable history. If you are fixing two issues, make two commits
-
-* Write descriptive, meaningful commit messages so that you and anyone else looking at your repository can easily understand its history
-
-* Don't commit half done work, for the sake of your collaborators (and your future self!)
-
-* Test your application before you commit to ensure functionality at every step in the development process
-
-We would like you to have well over 200 commits by graduation, so commit early and often!
-
-
-## Submission on BCS
-
-You are required to submit the following:
-
-* the URL to the deployed application
-
-* the URL to the Github repository
+  # Questions
+  If you have any questions, please contact the project owner by clicking on the email listed below.  
+  
+  ![user image](https://avatars3.githubusercontent.com/u/57199674?v=4)
+  #### This user's email is private.
 
