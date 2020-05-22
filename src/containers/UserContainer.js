@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import User from '../components/User';
-import API from './../utils/API';
-import './navbar.css';
+import API from '../utils/API';
+import './../styles/styles.css';
 
 
 class UserContainer extends Component {
@@ -135,7 +135,6 @@ class UserContainer extends Component {
         {/* User data will go in the component as props */}
         <User 
           users={this.state.showResult}
-          // sortUsers={this.sortUsers}
           sortUsers={this.sortAlpha}
           filterMale={this.filterMale}
           filter={this.filter}

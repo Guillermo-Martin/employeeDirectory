@@ -5,12 +5,12 @@ function User(props) {
     <div>
 
       {/* Table of Employees */}
-      <table className="table table-striped table-bordered table-sm table-fixed">
+      <table className="table table-bordered table-sm table-fixed">
         {/* Headers */}
         <thead>
           <tr>
-            <th className="col-2"><button onClick={props.filter}>User</button></th>
-            <th className="col-2"><button onClick={props.sortUsers}>Name</button></th>
+            <th className="col-2"><button onClick={props.filter}>Employee (Filter by Gender)</button></th>
+            <th className="col-2"><button onClick={props.sortUsers}>Name (Sort by First Name)</button></th>
             <th className="col-2">Address</th>
             <th className="col-2">Email</th>
             <th className="col-2">Cell Phone</th>
@@ -23,7 +23,7 @@ function User(props) {
           {props.users.map(({login, name, picture, email, location, cell, phone}) => {
             return(
               <tr key={login.uuid}>
-                <td className="col-2"><img src={picture.large} /></td>
+                <td className="col-2"><img src={picture.large} alt="employee" /></td>
                 <td className="col-2">{name.first} {name.last}</td>
                 <td className="col-2">{location.street.number} {location.street.name} {location.city} {location.state} {location.postcode}</td>
                 <td className="col-2">{email}</td>
@@ -40,6 +40,5 @@ function User(props) {
 }
 
 export default User;
-
 
 // getting random user data:  https://randomuser.me/
