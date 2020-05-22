@@ -11,7 +11,7 @@ function App() {
         
         <Navbar />
 
-        {/* <Route exact path="/" component={UserContainer} /> */}
+      
         <UserContainer />
         
         

@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import User from '../components/User';
 import API from './../utils/API';
+import './navbar.css';
 
 
 class UserContainer extends Component {
@@ -130,7 +131,7 @@ class UserContainer extends Component {
 
   render() {
     return (
-      <div>
+      <div className="header">
         {/* User data will go in the component as props */}
         <User 
           users={this.state.showResult}
