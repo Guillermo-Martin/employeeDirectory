@@ -50,6 +50,8 @@ This project is currently not accepting any contributions.
 
 If you have any questions, please contact the project owner by clicking on the email listed below.
 
-![user image](https://avatars3.githubusercontent.com/u/57199674?v=4)
-
 #### gscalica@gmail.com
+
+# Screenshot
+
+![employee directory](./src/assets/images/employee_directory.jpg)
